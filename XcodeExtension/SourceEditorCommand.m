@@ -19,6 +19,8 @@
 {
     if ([invocation.commandIdentifier isEqualToString:@"Unescape"]) {
         self.isUnescape = YES;
+    } else {
+        self.isUnescape = NO;
     }
     
     self.buffer = invocation.buffer;
@@ -93,7 +95,7 @@
     [self.buffer.lines removeObjectsInRange:NSMakeRange(range.start.line, range.end.line-range.start.line+1)];
     [self.buffer.lines insertObject:[NSString stringWithFormat:@"%@%@%@", firstString, selectedString, lastString] atIndex:index];
     
-    XCSourceTextRange *selection = [[XCSourceTextRange alloc] initWithStart:XCSourceTextPositionMake(0, 0) end:XCSourceTextPositionMake(0, 0)];
+    XCSourceTextRange *selection = [[XCSourceTextRange alloc] initWithStart:XCSourceTextPositionMake(index, 0) end:XCSourceTextPositionMake(index, 0)];
     [self.buffer.selections removeAllObjects];
     [self.buffer.selections insertObject:selection atIndex:0];
 }
