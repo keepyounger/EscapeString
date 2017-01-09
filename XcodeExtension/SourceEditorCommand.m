@@ -46,10 +46,11 @@
         NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:regexString options:0 error:nil];
         NSArray<NSTextCheckingResult *> *matches = [regex matchesInString:lineString options:0 range:NSMakeRange(0, lineString.length)];
         NSTextCheckingResult *result = matches.firstObject;
-        selectedString = [lineString substringWithRange:NSMakeRange(result.range.location+2, result.range.length-3)];
-        firstString = [lineString substringToIndex:result.range.location+2];
-        lastString = [lineString substringFromIndex:result.range.location+result.range.length-1];
-        
+        if (result) {
+            selectedString = [lineString substringWithRange:NSMakeRange(result.range.location+2, result.range.length-3)];
+            firstString = [lineString substringToIndex:result.range.location+2];
+            lastString = [lineString substringFromIndex:result.range.location+result.range.length-1];
+        }
         
     } else
     //有选择就执行选择
@@ -82,7 +83,7 @@
     
     NSInteger index = range.start.line;
     
-    if (selectedString.length==0) {
+    if ([selectedString stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" r"]].length==0) {
         return;
     }
     
