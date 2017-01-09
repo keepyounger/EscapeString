@@ -19,7 +19,7 @@ Xcode -> Preferences... -> Key Bindings (Filter "Escape")<br/>
 Xcode -> Preferences... -> Key Bindings (Filter "Escape")<br/>
 
 #Download
-<a href ="https://github.com/keepyounger/EscapeString/blob/master/EscapeString.zip?raw=true"> Escape </a> <br/>
+<a href ="https://github.com/keepyounger/EscapeString/blob/master/EscapeString.zip?raw=true"> EscapeString </a> <br/>
 
 # Support
 Xcode 8 or later
